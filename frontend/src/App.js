@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useState} from 'react';
 
-import {API} from './api_service'
+import { API } from './api_service'
 
 function App() {
 
@@ -9,23 +9,26 @@ function App() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
 
-
   const saveClicked = () =>{
     if (firstName.length === 0 || lastName.length === 0 || email.length === 0){
       alert('Fill all the fields!')
     }
     else{
-    API.saveData({first_name: firstName, last_name: lastName, email: email}).catch(error => console.log(error))
-    setFirstName('')
-    setLastName('')
-    setEmail('')
+      API.saveData({first_name: firstName, last_name: lastName, email: email}).catch(error => console.log(error))
+      setFirstName('')
+      setLastName('')
+      setEmail('')
+    }
   }
+
+  const adminLoginClicked = () =>{
+    window.location.href = '/admin-login';
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <button className="btn btn-secondary">Download Data</button><br/>
+        <button className="btn btn-success Admin-Login" onClick={adminLoginClicked}>Admin Login</button><br/>
         <div class="mb-3">
           <input id='firstName' type='text' className="form-control" placeholder='First Name' value={firstName} 
             onChange={evnt => setFirstName(evnt.target.value)}/>
