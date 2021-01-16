@@ -21,7 +21,15 @@ function AdminLogin() {
   }
 
   useEffect( () => {
+    if (token['token']==='undefined'){
+      alert('Wrong username or password.')
+      setToken('token', '')
+      setUsername('')
+      setPassword('')
+    }
+    else{
       if(token['token']) window.location.href = '/admin-landing';
+    }
     }, [token])
 
   return (
