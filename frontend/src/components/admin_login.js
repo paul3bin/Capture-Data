@@ -8,6 +8,7 @@ function AdminLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useCookies(['token']);
+  const isDisabled = username.length===0||password.length===0;
 
   const loginClicked = () =>{
     if (username.length === 0 || password.length === 0){
@@ -43,7 +44,7 @@ function AdminLogin() {
           <input id='password' type='password' className="form-control" placeholder='Password' value={password} 
             onChange={evnt => setPassword(evnt.target.value)}/>
         </div>
-        <button className="btn btn-primary" onClick={loginClicked}>Login</button>
+        <button disabled={isDisabled} className="btn btn-primary" onClick={loginClicked}>Login</button>
       </header>
     </div>
   );
