@@ -39,7 +39,8 @@ function App() {
         </div>
         <div class="mb-3">
           <input type="email" className="form-control" placeholder="Email" value={email}
-            onChange={evnt => setEmail(evnt.target.value)}/>
+            onChange={evnt => setEmail(evnt.target.value)} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            title='Enter a valid email!'/>
         </div>
         <button className="btn btn-primary" onClick={saveClicked}>Submit</button>
       </header>
